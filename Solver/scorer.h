@@ -8,6 +8,7 @@ class Scorer
 public:
     Scorer();
     virtual double score(Network* n) = 0;
+    virtual void nextGen() = 0;
 };
 
 #endif // SCORER_H

@@ -9,10 +9,10 @@ class RandomSolver : public Solver
     std::vector<Network*> nets;
 
 public:
-    int generationSize = 150;
+    int generationSize = 550;
     double maxScore = 100;
-    int maxIterations = 150;
-    int survivorCount = 5;
+    int maxIterations = 10000;
+    int survivorCount = 500;
 
     Scorer* scorer;
 

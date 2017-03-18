@@ -28,6 +28,8 @@ Network* RandomSolver::solve()
 {
     std::vector<SolverInfo> infoList;
 
+    scorer->nextGen();
+
     // Create initial batch of networks
     for (int i = 0; i < generationSize; i++)
     {
@@ -43,6 +45,8 @@ Network* RandomSolver::solve()
 
     for (int g = 0; g < maxIterations; g++)
     {
+        scorer->nextGen();
+
         std::sort(infoList.begin(), infoList.end(), sortFunction);
         std::vector<SolverInfo> survivors;
 
@@ -58,7 +62,7 @@ Network* RandomSolver::solve()
             int idx = rand() % survivors.size();
             Network* n = new Network(infoList[idx].network);
 
-            for (int m = 0; m < 200; m++)
+            for (int m = 0; m < 10; m++)
             {
                 n->mutate();
             }
